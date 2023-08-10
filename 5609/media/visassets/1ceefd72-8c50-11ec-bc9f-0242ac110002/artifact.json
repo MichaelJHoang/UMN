@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "orne0016",
+    "class": "gradient_new1",
+    "family": "orne0016",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        ""
+    ],
+    "type": "colormap",
+    "uuid": "1ceefd72-8c50-11ec-bc9f-0242ac110002"
+}

@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "hoang339",
+    "class": "Temperature",
+    "family": "hoang339",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        ""
+    ],
+    "type": "colormap",
+    "uuid": "08aa81ea-8d06-11ec-808f-0242ac110002"
+}

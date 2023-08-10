@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "hoang339",
+    "class": "Air",
+    "family": "hoang339",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        "CSCI5609"
+    ],
+    "type": "colormap",
+    "uuid": "7ee0cb76-bdb2-11ec-9f67-0242ac110002"
+}

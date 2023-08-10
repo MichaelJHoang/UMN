@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "hoang339",
+    "class": "ForestFire",
+    "family": "hoang339",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        "CSCI5609"
+    ],
+    "type": "colormap",
+    "uuid": "27f74670-b946-11ec-9ebf-0242ac110002"
+}

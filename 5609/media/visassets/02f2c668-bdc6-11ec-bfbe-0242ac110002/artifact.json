@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "hoang339",
+    "class": "Ground3",
+    "family": "hoang339",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        "CSCI5609"
+    ],
+    "type": "colormap",
+    "uuid": "02f2c668-bdc6-11ec-bfbe-0242ac110002"
+}

@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "elias252",
+    "class": "c_seq_yellowred",
+    "family": "elias252",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        "yelred"
+    ],
+    "type": "colormap",
+    "uuid": "80e6964c-8c7c-11ec-aa91-0242ac110002"
+}

@@ -1,0 +1,15 @@
+{
+    "artifactData": {
+        "colormap": "colormap.xml"
+    },
+    "artist": "hoang339",
+    "class": "Smoke",
+    "family": "hoang339",
+    "hidden": false,
+    "preview": "thumbnail.png",
+    "tags": [
+        "CSCI5609"
+    ],
+    "type": "colormap",
+    "uuid": "4f3e7738-bdb2-11ec-a8f1-0242ac110002"
+}
