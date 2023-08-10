@@ -1,0 +1,121 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class GraspGrabber : Grabber
+{
+    public InputActionProperty grabAction;
+
+    public Grabbable currentObject;
+    public Grabbable grabbedObject;
+
+    public GameObject otherController;
+
+    public GameObject spindleFlag;
+
+    private GameObject midpointSphere = null;
+    var? midpoint = null;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        grabbedObject = null;
+        currentObject = null;
+
+        grabAction.action.performed += Grab;
+        grabAction.action.canceled += Release;
+    }
+
+    private void OnDestroy()
+    {
+        grabAction.action.performed -= Grab;
+        grabAction.action.canceled -= Release;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (spindleFlag.GetComponent<spindleFlag_script>().flag)
+        {
+            if (grabbedObject)
+            {
+                otherController.GetComponent<GraspGrabber>().grabbedObject = grabbedObject;
+                var midpoint = ((otherController.transform.position - this.gameObject.transform.position) / 2) + this.gameObject.transform.position;
+                grabbedObject.transform.position = midpoint;
+            }
+
+            if (midpointSphere == null)
+            {
+                midpointSphere
+            }
+        }
+    }
+
+    public override void Grab(InputAction.CallbackContext context)
+    {
+        if (currentObject && grabbedObject == null)
+        {
+            if (currentObject.GetCurrentGrabber() != null)
+            {
+                currentObject.GetCurrentGrabber().Release(new InputAction.CallbackContext());
+            }
+
+            grabbedObject = currentObject;
+            grabbedObject.SetCurrentGrabber(this);
+
+            if (grabbedObject.GetComponent<Rigidbody>())
+            {
+                grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                grabbedObject.GetComponent<Rigidbody>().useGravity = false;
+            }
+
+            grabbedObject.transform.parent = this.transform;
+        }
+    }
+
+    public override void Release(InputAction.CallbackContext context)
+    {
+        if (grabbedObject)
+        {
+            if (grabbedObject.GetComponent<Rigidbody>())
+            {
+                grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+                grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+
+            grabbedObject.SetCurrentGrabber(null);
+            grabbedObject.transform.parent = null;
+            grabbedObject = null;
+        }
+        if (otherController.GetComponent<GraspGrabber>().grabbedObject)
+        {
+            if (otherController.GetComponent<GraspGrabber>().grabbedObject.GetComponent<Rigidbody>())
+            {
+                otherController.GetComponent<GraspGrabber>().grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+                otherController.GetComponent<GraspGrabber>().grabbedObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+
+            otherController.GetComponent<GraspGrabber>().grabbedObject.SetCurrentGrabber(null);
+            otherController.GetComponent<GraspGrabber>().grabbedObject.transform.parent = null;
+            otherController.GetComponent<GraspGrabber>().grabbedObject = null;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (currentObject == null && other.GetComponent<Grabbable>())
+        {
+            currentObject = other.gameObject.GetComponent<Grabbable>();
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (currentObject)
+        {
+            if (other.GetComponent<Grabbable>() && currentObject.GetInstanceID() == other.GetComponent<Grabbable>().GetInstanceID())
+            {
+                currentObject = null;
+            }
+        }
+    }
+}

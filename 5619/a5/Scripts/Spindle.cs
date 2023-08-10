@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class Spindle : MonoBehaviour
+{
+    public Transform controller1;
+    public Transform controller2;
+
+    private Quaternion lastSpindleRotation;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // initialize the lastSpindleRotation
+        lastSpindleRotation = Quaternion.LookRotation(controller1.position - controller2.position);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // calculates the current spindle vector rotation in world space
+        Quaternion spindleRotation = Quaternion.LookRotation(controller1.position - controller2.position);
+
+        // calculates the change in rotation by taking the inverse of the last frame's spindle rotation
+        // this cancels out the rotation from the previous frame
+        Quaternion rotationChange = spindleRotation * Quaternion.Inverse(lastSpindleRotation);
+
+        // rotates the current object by the same amount
+        this.transform.rotation = rotationChange * this.transform.rotation;
+
+        // updates the previous spindle rotation
+        lastSpindleRotation = spindleRotation;
+    }
+}

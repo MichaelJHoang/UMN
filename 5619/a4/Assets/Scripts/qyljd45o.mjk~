@@ -1,0 +1,44 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GoGo : MonoBehaviour
+{
+    public GameObject referenceCamera;
+    public float distanceThreshold;
+    public float coefficient_k;
+
+    private Transform child;
+    private Vector3? previousPosition = null;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        child = this.gameObject.transform.GetChild(0);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        var headsetPos = new Vector3(referenceCamera.transform.position.x, this.gameObject.transform.position.y, referenceCamera.transform.position.z);
+
+        float distance = Vector3.Distance(this.gameObject.transform.position, headsetPos);
+
+        float extension = coefficient_k * Mathf.Pow((this.gameObject.transform.position.magnitude - distanceThreshold), 2) * Time.deltaTime;
+
+        if (distance >= distanceThreshold)
+        {
+            previousPosition = child.localPosition;
+            child.localPosition = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z + extension);
+        }
+        else if (distance < distanceThreshold)
+        {
+            if (previousPosition.HasValue)
+                child.localPosition = previousPosition.Value;
+        }
+        else
+        {
+            Debug.LogWarning("DISTANCE IS NEITHER GREATER THAN NOR LESS THAN DISTANCE THRESHOLD");
+        }
+    }
+}
