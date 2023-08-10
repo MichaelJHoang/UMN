@@ -1,0 +1,156 @@
+                              ____________
+
+                               A2 WRITEUP
+                              ____________
+
+
+
+
+
+GROUP MEMBERS
+-------------
+
+  - Member 1: <NAME> <X500>
+  - Member 2: <NAME> <X500>
+
+  Up to 2 people may collaborate on this assignment. Write names/x.500
+  below. If working alone, leave off Member 2.
+
+  ONLY ONE GROUP MEMBER NEEDS TO SUBMIT TO GRADESCOPE.
+
+
+Problem 1: heat_mpi
+===================
+
+heat_mpi Timing Table
+~~~~~~~~~~~~~~~~~~~~~
+
+  Fill in the following table on measuring the performance of your
+  `heat_mpi' program on the Veggie cluster. Replace 00.00 entries with
+  your actual run times. You can use the provided `heat-run-jobs.sh'
+  script to ease this task.
+
+  -----------------------------
+                 Width         
+   Procs   6400  25600  102400 
+  -----------------------------
+       1  00.00  00.00   00.00 
+       2  00.00  00.00   00.00 
+       4  00.00  00.00   00.00 
+       8  00.00  00.00   00.00 
+      10  00.00  00.00   00.00 
+      16  00.00  00.00   00.00 
+      32  00.00  00.00   00.00 
+      64  00.00  00.00   00.00 
+     128  00.00  00.00   00.00 
+  -----------------------------
+
+
+heat_mpi Discussion Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Analyze your table of results and answer the following questions.
+  1. Did using more processors result in speedups?
+  2. Describe any trends or anomalies you see in the timings and
+     speculate on their causes - e.g. was there are a steady increase in
+     runtimes, steady decrease, or jagged changes in timing?
+  3. Try to explain how number of processors and problem size seem to
+     affect runtimes/speedup in the problem. Consider what happens on an
+     MPI run when the original host does not have enough processors to
+     available to support running on the original machine and must start
+     communicating with a networked machine mentioned in the `hostfile'.
+
+
+Problem 2: dense_pagerank_mpi
+=============================
+
+dense_pagerank_mpi Timing Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Fill in the following table on measuring the performance of your
+  `dense_pagerank_mpi' program on the Veggie cluster. Replace 00.00
+  entries with your actual run times. You can use the provided
+  `dense-pagerank-mpi-jobs.sh' script to ease this task.
+
+  The columns are for the notredame-XXXX.txt graphs
+  ----------------------------
+                  size        
+   Procs    501   8000  16000 
+  ----------------------------
+       1  00.00  00.00  00.00 
+       2  00.00  00.00  00.00 
+       4  00.00  00.00  00.00 
+       8  00.00  00.00  00.00 
+      10  00.00  00.00  00.00 
+      16  00.00  00.00  00.00 
+      32  00.00  00.00  00.00 
+      64  00.00  00.00  00.00 
+     128  00.00  00.00  00.00 
+  ----------------------------
+
+
+dense_pagerank_mpi Discussion Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Analyze your table of results and answer the following questions.
+  1. Did using more processors result in speedups?
+  2. Describe any trends or anomalies you see in the timings and
+     speculate on their causes - e.g. was there are a steady increase in
+     runtimes, steady decrease, or jagged changes in timing?
+  3. Try to explain how number of processors and problem size seem to
+     affect runtimes/speedup in the problem. Consider what happens on an
+     MPI run when the original host does not have enough processors to
+     available to support running on the original machine and must start
+     communicating with a networked machine mentioned in the `hostfile'.
+
+
+Problem 3: dense_pagerank_omp
+=============================
+
+dense_pagerank_omp Timing Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Fill in the following table on measuring the performance of your
+  `dense_pagerank_omp' program on the Veggie cluster. Replace 00.00
+  entries with your actual run times. You can use the provided
+  `dense-pagerank-omp-jobs.sh' script to ease this task.
+
+  The columns are for the notredame-XXXX.txt graphs
+  ----------------------------
+                  size        
+   Procs    501   8000  16000 
+  ----------------------------
+       1  00.00  00.00  00.00 
+       2  00.00  00.00  00.00 
+       4  00.00  00.00  00.00 
+       8  00.00  00.00  00.00 
+      10  00.00  00.00  00.00 
+      16  00.00  00.00  00.00 
+      32  00.00  00.00  00.00 
+      64  00.00  00.00  00.00 
+     128  00.00  00.00  00.00 
+  ----------------------------
+
+
+dense_pagerank_omp Discussion Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Analyze your table of results and answer the following questions.
+  1. Did using more processors result in speedups?
+  2. Describe any trends or anomalies you see in the timings and
+     speculate on their causes - e.g. was there are a steady increase in
+     runtimes, steady decrease, or jagged changes in timing?
+  3. Try to explain how number of processors and problem size seem to
+     affect runtimes/speedup in the problem. Consider the number of
+     physical cores which are on the Veggie machines (obtainable via
+     `lscpu').
+  4. Compare these timings to your MPI results (if available) and
+     indicate whether the distributed memory or shared memory seems
+     favorable according to your results.
+
+
+OPTIONAL MAKEUP Problem 4
+=========================
+
+  If working on the optional MAKEUP problem, add information described
+  in the assignment specification here.

@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+#include <mpi.h>
+
+#define NAME_LEN 255
+
+int main (int argc, char *argv[]){
+  MPI_Init (&argc, &argv);	// starts MPI
+
+  // Basic info
+  int npes, myrank, name_len;   
+  char processor_name[NAME_LEN];
+  MPI_Comm_size(MPI_COMM_WORLD, &npes); 
+  MPI_Comm_rank(MPI_COMM_WORLD, &myrank); 
+  MPI_Get_processor_name(processor_name, &name_len);
+
+  // Fill a with powers of proc rank
+  int mine = 10*(myrank);
+  int yours = -1;
+
+  int left_part  = (myrank - 1 + npes) % npes;
+  int right_part = (myrank + 1 + npes) % npes;
+
+  int ret =
+    MPI_Sendrecv(&mine,  1, MPI_INT, right_part, 1,
+                 &yours, 1, MPI_INT, left_part,  1,
+                 MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
+  printf("Proc %d (%s): mine %d yours %d\n\n",
+         myrank,processor_name,mine,yours);
+
+  MPI_Finalize();
+  return 0;
+}
