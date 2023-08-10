@@ -1,0 +1,127 @@
+                              ____________
+
+                               A2 WRITEUP
+                              ____________
+
+
+
+
+
+GROUP MEMBERS
+-------------
+
+  - Member 1: hoang339
+
+  Up to 2 people may collaborate on this assignment. Write names/x.500
+  above. If working alone, leave off Member 2.
+
+  ONLY ONE GROUP MEMBER SHOULD SUBMIT TO GRADESCOPE THEN ADD THEIR
+  PARTNER ACCORDING TO INSTRUCTIONS IN THE ASSIGNMENT WEB PAGE.
+
+
+Problem 1: heat_mpi
+===================
+
+heat_mpi Timing Table
+~~~~~~~~~~~~~~~~~~~~~
+
+  Fill in the following table on measuring the performance of your
+  `heat_mpi' program on MSI's Mesabi machine. Replace 00.00 entries with
+  your actual run times. You can use the provided `heat-slurm.sh' script
+  to ease this task. Submit it using `sbatch heat-slurm.sh' and extract
+  the lines marked `runtime:'.
+
+  -----------------------------
+                 Width         
+   Procs   6400  25600  102400 
+  -----------------------------
+       1  65.40  04.76   05.26 
+       2  04.68  04.81   05.20 
+       4  04.70  06.72   05.30 
+       8  06.64  05.25   05.12 
+      10  04.80  04.88   05.15 
+      16  06.46  05.27   05.38 
+      32  06.92  05.71   06.60 
+      64  05.38  05.31   09.12 
+     128  07.54  05.55   10.53 
+  -----------------------------
+
+
+heat_mpi Discussion Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Analyze your table of results and answer the following questions.
+  1. Did using more processors result in speedups?
+  2. Describe any trends or anomalies you see in the timings and
+     speculate on their causes - e.g. was there are a steady increase in
+     runtimes, steady decrease, or jagged changes in timing?
+  3. Try to explain how number of processors and problem size seem to
+     affect runtimes/speedup in the problem. Consider that most Mesabi
+     Nodes have 24 cores on them. Comment on whether this number seems
+     to affect the performance of the runs you see.
+
+
+Problem 2: kmeans_serial vs kmeans_mpi
+======================================
+
+  Discuss how you chose to parallelize your serial version of K-means in
+  the program `kmeans_mpi.c'. Answer the following questions briefly.
+  1. How is the input and output data partitioned among the processors?
+  2. What communication is required throughout the algorithm?
+  3. Which MPI collective communication operations did you employ?
+
+
+Problem 3: kmeans_mpi
+=====================
+
+kmeans_mpi Timing Table
+~~~~~~~~~~~~~~~~~~~~~~~
+
+  Fill in the following table on measuring the performance of your
+  `kmeans_mpi' program on MSI's Mesabi machine. Replace 00.00 entries
+  with your actual run times. You can use the provided `kmeans-slurm.sh'
+  script to ease this task.
+
+  The columns are for each of 3 data files that are provided and run in
+  the job script.
+
+  digits_all_5e3.txt digits_all_1e4.txt
+  -------------------------------------------------------------------
+                                       Data File                     
+   Procs  digits_all_5e3.txt  digits_all_1e4.txt  digits_all_3e4.txt 
+  -------------------------------------------------------------------
+       1               06.66               29.72               64.15 
+       2               06.55               15.76               35.12 
+       4               05.85               12.25               21.78 
+       8               06.33               08.20               14.27 
+      10               05.62               07.68               13.00 
+      16               05.64               07.42               11.83 
+      32               06.41               10.19               25.73 
+      64               07.45               11.41               18.79 
+     128               16.51               20.03               15.54 
+  -------------------------------------------------------------------
+
+
+kmeans_mpi Discussion Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Analyze your table of results and answer the following questions.
+  1. Did using more processors result in speedups?
+  2. Describe any trends or anomalies you see in the timings and
+     speculate on their causes - e.g. was there are a steady increase in
+     runtimes, steady decrease, or jagged changes in timing?
+  3. Try to explain how number of processors and problem size seem to
+     affect runtimes/speedup in the problem. Consider that most Mesabi
+     Nodes have 24 cores on them. Comment on whether this number seems
+     to affect the performance of the runs you see.
+
+
+/**
+
+    I / We affirm that all parties listed below have contributed to each solution presented in this document. All parties are capable of describing how the solutions were derived, how they apply to the problem, and that they were created in accordance with the course's PRIME DIRECTIVE.
+
+    Signed,
+
+    Jon-Michael Hoang
+
+*/

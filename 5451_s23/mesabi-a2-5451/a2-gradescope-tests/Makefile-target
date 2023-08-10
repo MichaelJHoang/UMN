@@ -1,0 +1,4 @@
+test-gradescpe: heat_mpi kmeans_serial kmeans_mpi
+	./testy test_heat_gradescope.org
+	./testy test_kmeans_serial.org
+	./testy test_kmeans_mpi_gradescope.org
