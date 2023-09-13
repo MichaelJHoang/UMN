@@ -90,8 +90,8 @@
     - ~20 diff kinds of AA
 
 - mRNA is translated into protein according to the genetic code
-    - rules governing the correspondence of the base sequence in DNA or RNA to the amino acid sequence of a protein.
-    
+    - rules governing the correspondence of the base sequence in DNA or RNA to the amino acid sequence of a protein.  
+
     ![genetic code](./images/ch_1_2_3/geneticCode.png)
 
 - the 3-base sets in RNA are called **codons**
@@ -109,7 +109,7 @@
         - r(ibosomal)RNA
         - t(ransfer)RNA
 
-- mRNA produced by transcription is trnaslated into protein by ribosomes
+- mRNA produced by transcription is trnaslated into protein by ribosomes  
 
 ![flow diagram 1.3](./images/ch_1_2_3/flowDiagram_1_3.png)
 
@@ -130,7 +130,7 @@
 
 ### Chapter 2:
 
-- Proteins have **four** main structures
+- Proteins have **four** main structures  
 
 ![protein structures](./images/ch_1_2_3/proteinStructures.png)
 
