@@ -1,0 +1,8 @@
+The largest discrepancy in amino acid counts between the coding sequences and 
+the whole genome sequences is the last column with the [Stp] codes wherein
+there's 774 in the whole genome counter to the other's 12. The [possible] reason for this 
+is because the whole genome contains ***multiple*** open reading frames with its stop codons, 5' and 3' UTRs,
+and signal peptides -- all of which can be of varying length. This leads to the `count_codons.py` code 
+to produce a massive amount of [stp] codes because there's no frame shifting or separation to account 
+for them. With proper separation and frame shifts, as seen in the separate_genes file, we are able to 
+get a more accurate reading of the genome and therefore, fewer [stp] code readings.
